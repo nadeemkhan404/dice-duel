@@ -166,3 +166,25 @@ btnNew.addEventListener('click', function () {
   player1El.classList.remove('player--winner');
 });
 */
+
+// Help Menu
+let btnClose = document.querySelector('.close-modal');
+let btnOpen = document.querySelector('.show-modal');
+
+let modalWindow = document.querySelector('.modal');
+let overlay = document.querySelector('.overlay');
+
+btnClose.addEventListener('click', function () {
+  modalWindow.classList.add('hidden');
+  overlay.classList.add('hidden');
+});
+
+overlay.addEventListener('click', function () {
+  modalWindow.classList.add('hidden');
+  overlay.classList.add('hidden');
+});
+
+btnOpen.addEventListener('click', function () {
+  modalWindow.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+});

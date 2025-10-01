@@ -31,6 +31,25 @@
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
     </main>
+
+    <button class="btn show-modal">ℹ️Help</button>
+
+    <div class="modal">
+      <div class="modal-header">
+        <button class="close-modal">&times;</button>
+        <h1>📝 How to Play</h1>
+      </div>
+      <ul>
+        <li>Two players take turns rolling a dice.</li>
+        <li>Each roll adds the dice value to the current score.</li>
+        <li>Rolling a 1 resets your current score and switches turn.</li>
+        <li>Click Hold to bank your current score into your total score.</li>
+        <li>First to reach 100 points wins!</li>
+        <li>Click New Game to reset.</li>
+      </ul>
+    </div>
+    <div class="overlay"></div>
+
     <script src="script.js"></script>
   </body>
 </html>

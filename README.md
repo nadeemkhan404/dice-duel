@@ -23,8 +23,7 @@ A two-player dice game built with **HTML, CSS and JavaScript**.
 
 ## 🚀 Live Demo
 
-[👉 Play on GitHub Pages](https://nadeemkhan404.github.io/dice-duels-game/)  
-_(Replace `yourusername` with your GitHub username)_
+[👉 Play on GitHub Pages](https://nadeemkhan404.github.io/dice-duel/)
 
 ---
 
@@ -51,6 +50,7 @@ _(Replace `yourusername` with your GitHub username)_
 
 ## 📂 Project Structure
 
+```text
 pig-game/
 ├── index.html
 ├── style.css
@@ -62,11 +62,10 @@ pig-game/
 ├── dice-5.png
 ├── dice-6.png
 └── screenshots/
-├── start.png
-├── rolling.png
-└── win.png
-
----
+    ├── start.png
+    ├── rolling.png
+    └── win.png
+```
 
 ## 🖼️ Screenshots
 
