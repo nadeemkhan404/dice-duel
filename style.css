@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
   margin: 0;
@@ -151,9 +150,9 @@ main {
 }
 .btn:hover,
 .btn:active {
-  /* background-color: #cf711f; */
   background-color: whitesmoke;
 }
+
 .dice {
   position: absolute;
   left: 50%;
@@ -166,14 +165,12 @@ main {
 .player--winner {
   background-color: #2f2f2f;
 }
-
 .player--winner .name {
   font-weight: 700;
   color: #c7365f;
 }
 
 /*Modal Window*/
-
 .modal-header {
   display: flex;
   justify-content: space-around;
@@ -196,13 +193,13 @@ li {
   font-size: 1.8rem;
   margin-top: 2rem;
 }
+
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-
   text-align: center;
   padding: 6rem;
   border-radius: 13px;
@@ -212,10 +209,8 @@ li {
 
 .overlay {
   position: fixed;
-
   width: 100%;
   height: 100%;
-
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
@@ -230,7 +225,6 @@ li {
   font-size: 5rem;
   border-radius: 50%;
   color: #444;
-
   text-align: center;
   backdrop-filter: blur(10px);
   cursor: pointer;
@@ -238,6 +232,7 @@ li {
   background: none;
 }
 
+/* Help button trigger */
 .show-modal {
   position: fixed;
   border: none;
@@ -254,13 +249,15 @@ li {
 @media (max-width: 600px) {
   html {
     font-size: 56.25%;
-  } /* slightly smaller base so rems fit */
+  }
 
+  /* scale container to viewport */
   main {
     width: 95vw;
     height: 90dvh;
   }
 
+  /* give a bit more middle space */
   .player {
     padding: 3rem;
   }
@@ -283,38 +280,50 @@ li {
     font-size: 2.6rem;
   }
 
-  /* dice smaller and a bit lower */
+  /* keep dice above the stack and scaled */
   .dice {
-    top: 28%;
+    top: 22%;
     height: 7.2rem;
   }
 
-  /* Reposition buttons for thumbs; no HTML changes needed */
-  .btn {
+  /* ----------
+     PERFECTLY EVEN BUTTON SPACING
+     ---------- */
+  :root {
+    /* starting position and equal step between buttons */
+    --btn-start: 36%;
+    --btn-gap: 10%;
+  }
+
+  /* Make ALL four buttons identical size & positioning */
+  .btn,
+  .show-modal {
+    position: absolute !important; /* override fixed on Help */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 84%;
+    min-height: 48px; /* equal height for all */
+    padding: 0.9rem 1.6rem;
     font-size: 1.6rem;
-    padding: 0.7rem 1.8rem;
+    margin: 0; /* no extra gaps */
+    z-index: 6;
   }
 
+  /* Use variables so gaps are mathematically equal */
   .btn--new {
-    top: 1.6rem;
+    top: var(--btn-start);
   }
-
-  /* Put Roll/Hold at the bottom, stacked */
-  .btn--roll,
-  .btn--hold {
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
-    top: auto;
-  }
+  .show-modal {
+    top: calc(var(--btn-start) + var(--btn-gap));
+  } /* HELP */
   .btn--roll {
-    bottom: 7.8rem;
+    top: calc(var(--btn-start) + var(--btn-gap) * 2);
   }
   .btn--hold {
-    bottom: 2rem;
+    top: calc(var(--btn-start) + var(--btn-gap) * 3);
   }
 
-  /* Modal becomes edge-to-edge with safe padding */
+  /* Modal becomes edge-to-edge */
   .modal {
     width: 92vw;
     max-height: 90dvh;
@@ -324,7 +333,6 @@ li {
   .modal-header {
     justify-content: space-between;
   }
-
   h1 {
     font-size: 2.6rem;
   }
@@ -338,5 +346,19 @@ li {
     font-size: 3.2rem;
     top: 1rem;
     right: 1rem;
+  }
+}
+
+/* Extra safety for short screens: shrink and spread a bit more */
+@media (max-width: 600px) and (max-height: 740px) {
+  :root {
+    --btn-start: 34%;
+    --btn-gap: 12%;
+  }
+  .btn,
+  .show-modal {
+    min-height: 44px;
+    font-size: 1.5rem;
+    padding: 0.7rem 1.4rem;
   }
 }
