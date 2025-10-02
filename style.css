@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
   margin: 0;
@@ -14,7 +15,8 @@ html {
 body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
-  height: 100vh;
+  /* was height: 100vh; -> min-height avoids iOS address bar jump */
+  min-height: 100dvh;
   color: #333;
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
   display: flex;
@@ -244,4 +246,97 @@ li {
 /* Placeholder Classes */
 .hidden {
   display: none;
+}
+
+/* ==========================
+   MOBILE OVERRIDES (≤ 600px)
+   ========================== */
+@media (max-width: 600px) {
+  html {
+    font-size: 56.25%;
+  } /* slightly smaller base so rems fit */
+
+  main {
+    width: 95vw;
+    height: 90dvh;
+  }
+
+  .player {
+    padding: 3rem;
+  }
+
+  .name {
+    font-size: 2.6rem;
+  }
+  .score {
+    font-size: 5.2rem;
+  }
+
+  .current {
+    width: 90%;
+    padding: 1.4rem;
+  }
+  .current-label {
+    font-size: 1.4rem;
+  }
+  .current-score {
+    font-size: 2.6rem;
+  }
+
+  /* dice smaller and a bit lower */
+  .dice {
+    top: 28%;
+    height: 7.2rem;
+  }
+
+  /* Reposition buttons for thumbs; no HTML changes needed */
+  .btn {
+    font-size: 1.6rem;
+    padding: 0.7rem 1.8rem;
+  }
+
+  .btn--new {
+    top: 1.6rem;
+  }
+
+  /* Put Roll/Hold at the bottom, stacked */
+  .btn--roll,
+  .btn--hold {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    top: auto;
+  }
+  .btn--roll {
+    bottom: 7.8rem;
+  }
+  .btn--hold {
+    bottom: 2rem;
+  }
+
+  /* Modal becomes edge-to-edge with safe padding */
+  .modal {
+    width: 92vw;
+    max-height: 90dvh;
+    padding: 2.4rem;
+  }
+
+  .modal-header {
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+  }
+  li {
+    font-size: 1.6rem;
+  }
+
+  .close-modal {
+    height: 3.8rem;
+    width: 3.8rem;
+    font-size: 3.2rem;
+    top: 1rem;
+    right: 1rem;
+  }
 }
