@@ -74,3 +74,11 @@ pig-game/
 | ![Start Screenshot](screenshots/init.png) | ![Rolling Screenshot](screenshots/rolling.png) | ![Winner Screenshot](screenshots/win.png) |
 
 ---
+
+## 🗂️ Key Files
+
+- `index.html` — game layout & UI
+- `style.css` — styling and layout
+- `script.js` — game logic & event handling
+
+---
